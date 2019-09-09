@@ -443,6 +443,9 @@
     <!-- Height of the status bar -->
     <dimen name="status_bar_height_portrait">57.0px</dimen>
 
+    <dimen name="rounded_corner_radius_top">90px</dimen>
+    <dimen name="rounded_corner_radius_bottom">90px</dimen>
+
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
      <bool name="config_showNavigationBar">true</bool>
