@@ -51,6 +51,7 @@ ro.vendor.qti.va_aosp.support=1
 DEVICE_PROVISIONED=1
 ril.subscription.types=NV,RUIM
 telephony.lteOnCdmaDevice=1
+ro.telephony.iwlan_operation_mode=legacy
 
 # Bpf
 ro.kernel.ebpf.supported=1
