@@ -361,6 +361,10 @@ PRODUCT_PACKAGES += \
     camera.msm8953_shim \
     libshim_dpmframework
 
+# Tethering
+PRODUCT_PACKAGES += \
+    TetheringConfigOverlay
+    
 # USB HAL
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
