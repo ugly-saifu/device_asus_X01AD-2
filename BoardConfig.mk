@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/xiaomi/onclite
+DEVICE_PATH := device/asus/X01AD
 
 # Architecture
 TARGET_ARCH := arm64
@@ -51,8 +51,8 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_BOOTIMG_HEADER_VERSION := 1
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-TARGET_KERNEL_SOURCE := kernel/xiaomi/onclite
-TARGET_KERNEL_CONFIG := onclite-perf_defconfig
+TARGET_KERNEL_SOURCE := kernel/asus/X01AD
+TARGET_KERNEL_CONFIG := X01AD_defconfig
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 TARGET_KERNEL_CLANG_COMPILE := true
@@ -62,7 +62,7 @@ TARGET_KERNEL_VERSION := 4.9
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := onclite,onc
+TARGET_OTA_ASSERT_DEVICE := X01AD,X01A
 
 # Audio
 AUDIO_FEATURE_ENABLED_ANC_HEADSET := true
@@ -181,7 +181,7 @@ BOARD_VNDK_VERSION := current
 PRODUCT_VENDOR_MOVE_ENABLED := true
 
 # Vendor security patch level
-VENDOR_SECURITY_PATCH := 2021-02-01
+VENDOR_SECURITY_PATCH := 2020-04-05
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
@@ -195,4 +195,4 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
--include vendor/xiaomi/onclite/BoardConfigVendor.mk
+-include vendor/asus/X01AD/BoardConfigVendor.mk

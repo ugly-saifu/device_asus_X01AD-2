@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),onclite)
+ifeq ($(TARGET_DEVICE),X01AD)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

@@ -8,8 +8,8 @@
 
 set -e
 
-DEVICE=onclite
-VENDOR=xiaomi
+DEVICE=X01AD
+VENDOR=asus
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
