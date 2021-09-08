@@ -35,38 +35,38 @@ product/lib64/com.qualcomm.qti.ant@1.0.so|f40868ad57012f1a512b14c889bc8380652cc5
 vendor/lib/com.qualcomm.qti.ant@1.0.so|8119c98f53a94736d95a2fb59225e0a054e038b8
 vendor/lib64/com.qualcomm.qti.ant@1.0.so|f40868ad57012f1a512b14c889bc8380652cc50f
 
-# Audio - from daisy-user-10-QKQ1.191002.002-V11.0.18.0.QDLMIXM-release-keys
-etc/permissions/audiosphere.xml|3c6d8f14bd99e52a424282fd5d0a5b9b06485dea
-framework/audiosphere.jar|c1679f5aca56f0cb24745b3f7d219acd04833bed
-vendor/bin/audioflacapp|a8ae278497715aa53f6fb86d5f5af225da0fc5b0
-vendor/etc/diracvdd.bin|f9b07ace60490649c44411504909c7bf8bc73d59
-vendor/lib/libacdb-fts.so|9fb9fe8f1e22e38e41f1517b8f206a50bbb24419
-vendor/lib/libacdbloader.so|f33941720463b3c8215fc644b7d638c6d8ab74c7
-vendor/lib/libacdbrtac.so|f997dfef5413873af88bd8636a501401e9ea9631
-vendor/lib/libadiertac.so|6cfa3c70f01617a944ed2d8512189400ccdec21e
-vendor/lib/libadm.so|b373d5cb6e4c6e081f1d206f6d9538339f330fda
-vendor/lib/libaudcal.so|8c4d9a610c5cce20dee9721feb4864ea2470caf2
-vendor/lib/libaudioalsa.so|1455df26b622c518c04d7f54746683ed96aaa74f
-vendor/lib/libaudioconfigstore.so|5b4d7d4f6840f65c1c630578fb3611d9ce47e268
-vendor/lib/libaudioparsers.so|4b980c4392b6e800fb23213a0daaa83b35c04051
-vendor/lib/libaudio_log_utils.so|7fb2bb0abd10ca763ae5d079a8070e9d3d493bf9
-vendor/lib/libdrc.so|55fc13d205ce3199de2cf1f9c1dab479909c15be
-vendor/lib/libqtigef.so|fbedb509c61ff1a7d6e9c4a099af346ca781430a
-vendor/lib/libsurround_3mic_proc.so|d8c1d2cb7d598eee79ccfe5b7ec83a185c8fef6c
-vendor/lib/libtinycompress_vendor.so|4991b78d9ed12b828ceeaf61e5cde6328eb944b9
-vendor/lib/soundfx/libasphere.so|4d0ccf1c282bb70619d20bf7d79021dc3815a579
-vendor/lib64/libacdb-fts.so|662467af62f9607abfd5acb532dfbf69240bcc70
-vendor/lib64/libacdbloader.so|7c49e7d95090e20f6198f03959323359e4b2ed19
-vendor/lib64/libacdbrtac.so|54d114f280eb99f4aa73890c5e9cfbb5b55eb813
-vendor/lib64/libadiertac.so|5b511a0312721e9e6ff27fae9a3f035cf66ac6f7
-vendor/lib64/libaudcal.so|a2788d71d00be193e9704edefc1b363cbc847942
-vendor/lib64/libaudioalsa.so|0a8f0746cc8fd381d001f52c7eb4460951802ac4
-vendor/lib64/libaudioconfigstore.so|a862e94f4fc75ce3c3274f219be8c128fe58a822
-vendor/lib64/libaudioparsers.so|67f6836de4391c33cc030faa5c885ab250324291
-vendor/lib64/libaudio_log_utils.so|3670ed70e68b209f67852cad81b74d2dda2de3cd
-vendor/lib64/libqtigef.so|70df5848c061154e4c33b147e06d4979e2391b5e
-vendor/lib64/libtinycompress_vendor.so|74909f72ee8ebb01c2f4ef717e902055272a5917
-vendor/lib64/soundfx/libasphere.so|f552a053f935299b3fd9be03a596eb4c40dee50e
+# Audio
+etc/permissions/audiosphere.xml
+-framework/audiosphere.jar
+vendor/bin/audioflacapp
+vendor/firmware/tfa98xx.cnt
+vendor/lib/libacdb-fts.so
+vendor/lib/libacdbloader.so
+vendor/lib/libacdbrtac.so
+vendor/lib/libadiertac.so
+vendor/lib/libadm.so
+vendor/lib/libaudcal.so
+vendor/lib/libaudioalsa.so
+vendor/lib/libaudioconfigstore.so
+vendor/lib/libaudioparsers.so
+vendor/lib/libaudio_log_utils.so
+vendor/lib/libdrc.so
+vendor/lib/libqtigef.so
+vendor/lib/libsurround_3mic_proc.so
+vendor/lib/libtinycompress_vendor.so
+vendor/lib/soundfx/libasphere.so
+vendor/lib64/libacdb-fts.so
+vendor/lib64/libacdbloader.so
+vendor/lib64/libacdbrtac.so
+vendor/lib64/libadiertac.so
+vendor/lib64/libaudcal.so
+vendor/lib64/libaudioalsa.so
+vendor/lib64/libaudioconfigstore.so
+vendor/lib64/libaudioparsers.so
+vendor/lib64/libaudio_log_utils.so
+vendor/lib64/libqtigef.so
+vendor/lib64/libtinycompress_vendor.so
+vendor/lib64/soundfx/libasphere.so
 
 # Audio-ACDB
 vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
@@ -76,8 +76,6 @@ vendor/etc/acdbdata/MTP/MTP_Handset_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_Headset_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_workspaceFile.qwsp
-vendor/etc/acdbdata/adsp_avs_config.acdb
 
 # Bluetooth - from daisy-user-10-QKQ1.191002.002-V11.0.18.0.QDLMIXM-release-keys
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|378ad8ce95651b4bf81ad73aaffbdf0666c55432

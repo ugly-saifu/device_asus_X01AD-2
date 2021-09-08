@@ -47,31 +47,35 @@
         <usecase name="USECASE_VOICEMMODE1_CALL" type="out" id="34"/>
         <usecase name="USECASE_VOICEMMODE2_CALL" type="in" id="35"/>
         <usecase name="USECASE_VOICEMMODE2_CALL" type="out" id="35"/>
+	<usecase name="USECASE_AUDIO_SPKR_CALIB_RX" type="out" id="5"/>
+        <usecase name="USECASE_AUDIO_SPKR_CALIB_TX" type="in" id="59"/>
     </pcm_ids>
     <config_params>
         <param key="spkr_1_tz_name" value="wsa881x.0f"/>
         <param key="spkr_2_tz_name" value=""/>
     </config_params>
     <acdb_ids>
+	<!-- Huaqin add for config nxp pa cal by zhengwu at 2018/06/27 start -->
+        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15"/>
+	<device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="14"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2" acdb_id="14"/>
+	<device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK" acdb_id="102"/>
+	<!-- Huaqin add for config nxp pa cal by zhengwu at 2018/06/27 end -->
         <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" acdb_id="136"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED" acdb_id="136"/>
         <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT" acdb_id="136"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT" acdb_id="136"/>
-        <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK" acdb_id="137"/>
-	<device name="SND_DEVICE_IN_BT_SCO_MIC" acdb_id="323"/>
     </acdb_ids>
 
     <backend_names>
         <device name="SND_DEVICE_OUT_HEADPHONES" interface="PRI_MI2S_RX"/>
-	<device name="SND_DEVICE_OUT_HEADPHONES_CE" interface="PRI_MI2S_RX"/>
-	<device name="SND_DEVICE_OUT_HEADPHONES_NO_CE" interface="PRI_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_BT_SCO_WB" interface="INT_BT_SCO_RX"/>
         <device name="SND_DEVICE_OUT_BT_SCO" interface="INT_BT_SCO_RX"/>
         <device name="SND_DEVICE_OUT_LINE" interface="PRI_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_ANC_HEADSET" interface="PRI_MI2S_RX"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" interface="PRI_MI2S_RX"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_CE" interface="PRI_MI2S_RX"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_NO_CE" interface="PRI_MI2S_RX"/>
+	<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/09/18 start -->
+	<device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" backend="speaker-and-headphones" interface="QUIN_MI2S_RX-and-PRI_MI2S_RX"/>
+	<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/09/18 end -->
         <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" interface="PRI_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_ANC_HEADSET" interface="PRI_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" interface="PRI_MI2S_RX"/>
@@ -80,13 +84,13 @@
         <device name="SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES" interface="PRI_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_TTY_VCO_HEADPHONES" interface="PRI_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_HANDSET" interface="PRI_MI2S_RX"/>
-        <device name="SND_DEVICE_OUT_SPEAKER" interface="PRI_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_SPEAKER" interface="QUIN_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_REVERSE" interface="PRI_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_VBAT" interface="PRI_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_HANDSET" interface="PRI_MI2S_RX"/>
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" interface="PRI_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" interface="QUIN_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_VBAT" interface="PRI_MI2S_RX"/>
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2" interface="PRI_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2" interface="QUIN_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT" interface="PRI_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_TTY_HCO_HANDSET" interface="PRI_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_ANC_FB_HEADSET" interface="PRI_MI2S_RX"/>
@@ -136,13 +140,10 @@
         <device name="SND_DEVICE_IN_AANC_HANDSET_MIC" interface="TERT_MI2S_TX"/>
         <device name="SND_DEVICE_IN_QUAD_MIC" interface="TERT_MI2S_TX"/>
         <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC" interface="TERT_MI2S_TX"/>
-        <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC_MUSIC" interface="TERT_MI2S_TX"/>
-        <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC_INTERVIEW" interface="TERT_MI2S_TX"/>
-        <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC_VOICE" interface="TERT_MI2S_TX"/>
         <device name="SND_DEVICE_IN_SPEAKER_STEREO_DMIC" interface="TERT_MI2S_TX"/>
-        <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK" interface="SENARY_MI2S_TX"/>
-        <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_1" interface="SENARY_MI2S_TX"/>
-        <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_2" interface="SENARY_MI2S_TX"/>
+        <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK" interface="QUIN_MI2S_TX"/>
+        <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_1" interface="QUIN_MI2S_TX"/>
+        <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_2" interface="QUIN_MI2S_TX"/>
         <device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC_BROADSIDE" interface="TERT_MI2S_TX"/>
         <device name="SND_DEVICE_IN_SPEAKER_DMIC_BROADSIDE" interface="TERT_MI2S_TX"/>
         <device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC_BROADSIDE" interface="TERT_MI2S_TX"/>
@@ -167,6 +168,11 @@
         <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_WB" backend="speaker-and-bt-sco-wb" interface="PRI_MI2S_RX-and-INT_BT_SCO_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO" backend="wsa-speaker-and-bt-sco" interface="PRI_MI2S_RX-and-INT_BT_SCO_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO_WB" backend="wsa-speaker-and-bt-sco-wb" interface="PRI_MI2S_RX-and-INT_BT_SCO_RX"/>
+	<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+        <device name="SND_DEVICE_OUT_SPEAKER" backend="speaker" interface="QUIN_MI2S_RX"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" backend="speaker" interface="QUIN_MI2S_RX"/>
+	<device name="SND_DEVICE_OUT_VOICE_SPEAKER_2" backend="speaker" interface="QUIN_MI2S_RX"/>
+        <!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
     </backend_names>
     <!-- below values are for ref purpose to OEM, doesn't contain actual hardware info on MTP -->
     <microphone_characteristics>

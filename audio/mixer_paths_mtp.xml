@@ -30,8 +30,6 @@
 
 <mixer>
     <!-- These are the initial mixer settings -->
-    <ctl name="Speaker Boost" value="DISABLE" />
-    <ctl name="EAR PA Boost" value="DISABLE" />
     <ctl name="Voice Rx Device Mute" id="0" value="0" />
     <ctl name="Voice Rx Device Mute" id="1" value="-1" />
     <ctl name="Voice Rx Device Mute" id="2" value="20" />
@@ -86,7 +84,6 @@
     <ctl name="HPHL" value="ZERO" />
     <ctl name="HPHR" value="ZERO" />
     <ctl name="SPK" value="ZERO" />
-    <ctl name="LINE_OUT" value="ZERO" />
     <ctl name="WSA Spk Switch" value="ZERO" />
     <ctl name="SpkrMono WSA_RDAC" value="ZERO" />
     <ctl name="SpkrMono BOOST Switch" value="1" />
@@ -96,13 +93,13 @@
     <ctl name="MI2S_RX Channels" value="One" />
     <ctl name="MI2S_TX Channels" value="One" />
     <ctl name="PRI_MI2S_RX_DL_HL Switch" value="0" />
-    <ctl name="PRI_MI2S_RX_VI_FB_MUX" value="ZERO" />
+<!-- Huaqin add for pa cal by zhengwu at 2018/08/20 start -->
+    <ctl name="QUIN_MI2S_RX_VI_FB_MUX" value="ZERO" />
+<!-- Huaqin add for pa cal by zhengwu at 2018/08/20 end -->
     <ctl name="DEC3 MUX" value="ZERO" />
     <ctl name="DEC4 MUX" value="ZERO" />
     <ctl name="SpkrMono VISENSE Switch" value="0" />
     <ctl name="ADC1_INP1 Switch" value="0" />
-    <ctl name="Ext_Speaker_Amp" value="Off" />
-    <ctl name="Ext_Receiver_Amp" value="Off" />
 
     <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="0" />
     <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia1" value="0" />
@@ -219,11 +216,6 @@
     <!-- Incall Music -->
     <ctl name="Incall_Music Audio Mixer MultiMedia2" value="0" />
     <ctl name="Incall_Music_2 Audio Mixer MultiMedia9" value="0" />
-<!-- XiaoMi's SOS demand -->
-    <ctl name="Incall_Music Audio Mixer MultiMedia1" value="0" />
-    <ctl name="Incall_Music_2 Audio Mixer MultiMedia2" value="0" />
-    <ctl name="Incall_Music_2 Audio Mixer MultiMedia1" value="0" />
- <!-- [PATCH] audio: platian: config the incall music -->
     <!-- Incall Music End -->
 
     <!-- QCHAT -->
@@ -282,6 +274,12 @@
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="1" />
     </path>
 
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+    <path name="deep-buffer-playback speaker">
+        <ctl name="QUIN_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+    </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
+
     <path name="deep-buffer-playback bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia1" value="1" />
     </path>
@@ -293,12 +291,12 @@
 
     <path name="deep-buffer-playback speaker-and-bt-sco">
         <path name="deep-buffer-playback bt-sco" />
-        <path name="deep-buffer-playback" />
+        <path name="deep-buffer-playback speaker" />
     </path>
 
     <path name="deep-buffer-playback speaker-and-bt-sco-wb">
         <path name="deep-buffer-playback bt-sco-wb" />
-        <path name="deep-buffer-playback" />
+        <path name="deep-buffer-playback speaker" />
     </path>
 
     <path name="deep-buffer-playback wsa-speaker-and-bt-sco">
@@ -319,7 +317,7 @@
 
     <path name="deep-buffer-playback speaker-and-hdmi">
         <path name="deep-buffer-playback hdmi" />
-        <path name="deep-buffer-playback" />
+        <path name="deep-buffer-playback speaker" />
     </path>
 
     <path name="deep-buffer-playback usb-headphones">
@@ -328,23 +326,34 @@
 
     <path name="deep-buffer-playback speaker-and-usb-headphones">
         <path name="deep-buffer-playback usb-headphones" />
-        <path name="deep-buffer-playback" />
+        <path name="deep-buffer-playback speaker" />
     </path>
 
     <path name="deep-buffer-playback speaker-and-headphones">
-        <path name="deep-buffer-playback" />
+        <path name="deep-buffer-playback speaker" />
     </path>
 	
     <path name="deep-buffer-playback transmission-fm">
         <ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia1" value="1" />
     </path>
 
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/09/25 start -->
     <path name="low-latency-playback">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia5" value="1" />
     </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/09/25 end -->
 
+    <path name="low-latency-playback headphones">
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia5" value="1" />
+    </path>
+
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+    <path name="low-latency-playback speaker">
+        <ctl name="QUIN_MI2S_RX Audio Mixer MultiMedia5" value="1" />
+    </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
     <path name="low-latency-playback speaker-protected">
-        <path name="low-latency-playback" />
+        <path name="low-latency-playback speaker" />
     </path>
 
     <path name="low-latency-playback bt-sco">
@@ -358,12 +367,12 @@
 
     <path name="low-latency-playback speaker-and-bt-sco">
         <path name="low-latency-playback bt-sco" />
-        <path name="low-latency-playback" />
+        <path name="low-latency-playback speaker" />
     </path>
 
     <path name="low-latency-playback speaker-and-bt-sco-wb">
         <path name="low-latency-playback bt-sco-wb" />
-        <path name="low-latency-playback" />
+        <path name="low-latency-playback speaker" />
     </path>
 
     <path name="low-latency-playback wsa-speaker-and-bt-sco">
@@ -384,7 +393,7 @@
 
     <path name="low-latency-playback speaker-and-hdmi">
         <path name="low-latency-playback hdmi" />
-        <path name="low-latency-playback" />
+        <path name="low-latency-playback speaker" />
     </path>
 
     <path name="low-latency-playback usb-headphones">
@@ -393,23 +402,30 @@
 
     <path name="low-latency-playback speaker-and-usb-headphones">
         <path name="low-latency-playback usb-headphones" />
-        <path name="low-latency-playback" />
-    </path>
-
-    <path name="low-latency-playback speaker-and-headphones">
-         <path name="low-latency-playback" />
+        <path name="low-latency-playback speaker" />
     </path>
 	
     <path name="low-latency-playback transmission-fm">
         <ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia5" value="1" />
     </path>
 
+    <path name="low-latency-playback speaker-and-headphones">
+        <path name="low-latency-playback speaker" />
+	<path name="low-latency-playback headphones" />
+    </path>
+
     <path name="audio-ull-playback">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia3" value="1" />
     </path>
 
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+    <path name="audio-ull-playback speaker">
+        <ctl name="QUIN_MI2S_RX Audio Mixer MultiMedia3" value="1" />
+    </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
+
     <path name="audio-ull-playback speaker-protected">
-        <path name="audio-ull-playback" />
+        <path name="audio-ull-playback speaker" />
     </path>
 
     <path name="audio-ull-playback headphones">
@@ -427,12 +443,12 @@
 
     <path name="audio-ull-playback speaker-and-bt-sco">
         <path name="audio-ull-playback bt-sco" />
-        <path name="audio-ull-playback" />
+        <path name="audio-ull-playback speaker" />
     </path>
 
     <path name="audio-ull-playback speaker-and-bt-sco-wb">
         <path name="audio-ull-playback bt-sco-wb" />
-        <path name="audio-ull-playback" />
+        <path name="audio-ull-playback speaker" />
     </path>
 
     <path name="audio-ull-playback wsa-speaker-and-bt-sco">
@@ -453,7 +469,7 @@
 
     <path name="audio-ull-playback speaker-and-hdmi">
         <path name="audio-ull-playback hdmi" />
-        <path name="audio-ull-playback" />
+        <path name="audio-ull-playback speaker" />
     </path>
 
     <path name="audio-ull-playback usb-headphones">
@@ -462,19 +478,24 @@
 
     <path name="audio-ull-playback speaker-and-usb-headphones">
         <path name="audio-ull-playback usb-headphones" />
-        <path name="audio-ull-playback" />
+        <path name="audio-ull-playback speaker" />
     </path>
 	
     <path name="audio-ull-playback speaker-and-headphones">
-        <path name="audio-ull-playback" />
+        <path name="audio-ull-playback speaker" />
     </path>
 	
     <path name="compress-offload-playback">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia4" value="1" />
     </path>
 
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+    <path name="compress-offload-playback speaker">
+        <ctl name="QUIN_MI2S_RX Audio Mixer MultiMedia4" value="1" />
+    </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
     <path name="compress-offload-playback speaker-protected">
-        <path name="compress-offload-playback" />
+        <path name="compress-offload-playback speaker" />
     </path>
     <path name="compress-offload-playback bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia4" value="1" />
@@ -487,12 +508,12 @@
 
     <path name="compress-offload-playback speaker-and-bt-sco">
         <path name="compress-offload-playback bt-sco" />
-        <path name="compress-offload-playback" />
+        <path name="compress-offload-playback speaker" />
     </path>
 
     <path name="compress-offload-playback speaker-and-bt-sco-wb">
         <path name="compress-offload-playback bt-sco-wb" />
-        <path name="compress-offload-playback" />
+        <path name="compress-offload-playback speaker" />
     </path>
 
     <path name="compress-offload-playback wsa-speaker-and-bt-sco">
@@ -513,7 +534,7 @@
 
     <path name="compress-offload-playback speaker-and-hdmi">
         <path name="compress-offload-playback hdmi" />
-        <path name="compress-offload-playback" />
+        <path name="compress-offload-playback speaker" />
     </path>
 
     <path name="compress-offload-playback usb-headphones">
@@ -522,16 +543,22 @@
 
     <path name="compress-offload-playback speaker-and-usb-headphones">
         <path name="compress-offload-playback usb-headphones" />
-        <path name="compress-offload-playback" />
+        <path name="compress-offload-playback speaker" />
     </path>
 
     <path name="compress-offload-playback speaker-and-headphones">
-        <path name="compress-offload-playback" />
+        <path name="compress-offload-playback speaker" />
     </path>
 	
     <path name="compress-offload-playback2">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia7" value="1" />
     </path>
+
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+    <path name="compress-offload-playback2 speaker">
+        <ctl name="QUIN_MI2S_RX Audio Mixer MultiMedia7" value="1" />
+    </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
 
     <path name="compress-offload-playback2 bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia7" value="1" />
@@ -544,12 +571,12 @@
 
     <path name="compress-offload-playback2 speaker-and-bt-sco">
         <path name="compress-offload-playback2 bt-sco" />
-        <path name="compress-offload-playback2" />
+        <path name="compress-offload-playback2 speaker" />
     </path>
 
     <path name="compress-offload-playback2 speaker-and-bt-sco-wb">
         <path name="compress-offload-playback2 bt-sco-wb" />
-        <path name="compress-offload-playback2" />
+        <path name="compress-offload-playback2 speaker" />
     </path>
 
     <path name="compress-offload-playback2 wsa-speaker-and-bt-sco">
@@ -574,16 +601,16 @@
 
     <path name="compress-offload-playback2 speaker-and-hdmi">
         <path name="compress-offload-playback2 hdmi" />
-        <path name="compress-offload-playback2" />
+        <path name="compress-offload-playback2 speaker" />
     </path>
 
     <path name="compress-offload-playback2 speaker-and-usb-headphones">
         <path name="compress-offload-playback2 usb-headphones" />
-        <path name="compress-offload-playback2" />
+        <path name="compress-offload-playback2 speaker" />
     </path>
 	
     <path name="compress-offload-playback2 speaker-and-headphones">
-        <path name="compress-offload-playback2" />
+        <path name="compress-offload-playback2 speaker" />
     </path>
 	
     <path name="compress-offload-playback transmission-fm">
@@ -593,6 +620,12 @@
     <path name="compress-offload-playback3">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia10" value="1" />
     </path>
+
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+    <path name="compress-offload-playback3 speaker">
+        <ctl name="QUIN_MI2S_RX Audio Mixer MultiMedia10" value="1" />
+    </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
 
     <path name="compress-offload-playback3 bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia10" value="1" />
@@ -605,12 +638,12 @@
 
     <path name="compress-offload-playback3 speaker-and-bt-sco">
         <path name="compress-offload-playback3 bt-sco" />
-        <path name="compress-offload-playback3" />
+        <path name="compress-offload-playback3 speaker" />
     </path>
 
     <path name="compress-offload-playback3 speaker-and-bt-sco-wb">
         <path name="compress-offload-playback3 bt-sco-wb" />
-        <path name="compress-offload-playback3" />
+        <path name="compress-offload-playback3 speaker" />
     </path>
 
     <path name="compress-offload-playback3 wsa-speaker-and-bt-sco">
@@ -630,9 +663,19 @@
         <path name="compress-offload-playback3" />
     </path>
 
+    <path name="compress-offload-playback3 speaker-and-headphones">
+        <path name="compress-offload-playback3 speaker" />
+    </path>
+
     <path name="compress-offload-playback4">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia11" value="1" />
     </path>
+
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+    <path name="compress-offload-playback4 speaker">
+        <ctl name="QUIN_MI2S_RX Audio Mixer MultiMedia11" value="1" />
+    </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
 
     <path name="compress-offload-playback4 bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia11" value="1" />
@@ -645,12 +688,12 @@
 
     <path name="compress-offload-playback4 speaker-and-bt-sco">
         <path name="compress-offload-playback4 bt-sco" />
-        <path name="compress-offload-playback4" />
+        <path name="compress-offload-playback4 speaker" />
     </path>
 
     <path name="compress-offload-playback4 speaker-and-bt-sco-wb">
         <path name="compress-offload-playback4 bt-sco-wb" />
-        <path name="compress-offload-playback4" />
+        <path name="compress-offload-playback4 speaker" />
     </path>
 
     <path name="compress-offload-playback4 wsa-speaker-and-bt-sco">
@@ -667,12 +710,22 @@
 
     <path name="compress-offload-playback4 speaker-and-hdmi">
         <path name="compress-offload-playback4 hdmi" />
-        <path name="compress-offload-playback4" />
+        <path name="compress-offload-playback4 speaker" />
+    </path>
+
+    <path name="compress-offload-playback4 speaker-and-headphones">
+        <path name="compress-offload-playback4 speaker" />
     </path>
 
     <path name="compress-offload-playback5">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia12" value="1" />
     </path>
+
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+    <path name="compress-offload-playback5 speaker">
+        <ctl name="QUIN_MI2S_RX Audio Mixer MultiMedia12" value="1" />
+    </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
 
     <path name="compress-offload-playback5 bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia12" value="1" />
@@ -685,12 +738,12 @@
 
     <path name="compress-offload-playback5 speaker-and-bt-sco">
         <path name="compress-offload-playback5 bt-sco" />
-        <path name="compress-offload-playback5" />
+        <path name="compress-offload-playback5 speaker" />
     </path>
 
     <path name="compress-offload-playback5 speaker-and-bt-sco-wb">
         <path name="compress-offload-playback5 bt-sco-wb" />
-        <path name="compress-offload-playback5" />
+        <path name="compress-offload-playback5 speaker" />
     </path>
 
     <path name="compress-offload-playback5 wsa-speaker-and-bt-sco">
@@ -707,12 +760,22 @@
 
     <path name="compress-offload-playback5 speaker-and-hdmi">
         <path name="compress-offload-playback5 hdmi" />
-        <path name="compress-offload-playback5" />
+        <path name="compress-offload-playback5 speaker" />
+    </path>
+
+    <path name="compress-offload-playback5 speaker-and-headphones">
+        <path name="compress-offload-playback5 speaker" />
     </path>
 
     <path name="compress-offload-playback6">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia13" value="1" />
     </path>
+
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+    <path name="compress-offload-playback6 speaker">
+        <ctl name="QUIN_MI2S_RX Audio Mixer MultiMedia13" value="1" />
+    </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
 
     <path name="compress-offload-playback6 bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia13" value="1" />
@@ -725,12 +788,12 @@
 
     <path name="compress-offload-playback6 speaker-and-bt-sco">
         <path name="compress-offload-playback6 bt-sco" />
-        <path name="compress-offload-playback6" />
+        <path name="compress-offload-playback6 speaker" />
     </path>
 
     <path name="compress-offload-playback6 speaker-and-bt-sco-wb">
         <path name="compress-offload-playback6 bt-sco-wb" />
-        <path name="compress-offload-playback6" />
+        <path name="compress-offload-playback6 speaker" />
     </path>
 
     <path name="compress-offload-playback6 wsa-speaker-and-bt-sco">
@@ -747,12 +810,22 @@
 
     <path name="compress-offload-playback6 speaker-and-hdmi">
         <path name="compress-offload-playback6 hdmi" />
-        <path name="compress-offload-playback6" />
+        <path name="compress-offload-playback6 speaker" />
+    </path>
+
+    <path name="compress-offload-playback6 speaker-and-headphones">
+        <path name="compress-offload-playback6 speaker" />
     </path>
 
     <path name="compress-offload-playback7">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia14" value="1" />
     </path>
+
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 start -->
+    <path name="compress-offload-playback7 speaker">
+        <ctl name="QUIN_MI2S_RX Audio Mixer MultiMedia14" value="1" />
+    </path>
+<!-- Huaqin add for config new audioboard xml by zhengwu at 2018/08/06 end -->
 
     <path name="compress-offload-playback7 bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia14" value="1" />
@@ -765,12 +838,12 @@
 
     <path name="compress-offload-playback7 speaker-and-bt-sco">
         <path name="compress-offload-playback7 bt-sco" />
-        <path name="compress-offload-playback7" />
+        <path name="compress-offload-playback7 speaker" />
     </path>
 
     <path name="compress-offload-playback7 speaker-and-bt-sco-wb">
         <path name="compress-offload-playback7 bt-sco-wb" />
-        <path name="compress-offload-playback7" />
+        <path name="compress-offload-playback7 speaker" />
     </path>
 
     <path name="compress-offload-playback7 wsa-speaker-and-bt-sco">
@@ -787,7 +860,11 @@
 
     <path name="compress-offload-playback7 speaker-and-hdmi">
         <path name="compress-offload-playback7 hdmi" />
-        <path name="compress-offload-playback7" />
+        <path name="compress-offload-playback7 speaker" />
+    </path>
+
+    <path name="compress-offload-playback7 speaker-and-headphones">
+        <path name="compress-offload-playback7 speaker" />
     </path>
 
     <path name="audio-record">
@@ -896,11 +973,19 @@
        <path name="voice2-call usb-headphones" />
     </path>
 
+<!-- Huaqin add for fm no sound by zhengwu at 2018/09/10 start -->
     <path name="play-fm">
-        <ctl name="Internal FM RX Volume" value="1" />
-        <ctl name="PRI_MI2S_RX Port Mixer INTERNAL_FM_TX" value="1" />
-        <ctl name="MI2S_DL_HL Switch" value="1" />
+        <ctl name="Internal FM RX Volume" value="1"/>
+        <ctl name="PRI_MI2S_RX Port Mixer INTERNAL_FM_TX" value="1"/>
+        <ctl name="PRI_MI2S_RX_DL_HL Switch" value="1"/>
     </path>
+
+    <path name="play-fm speaker">
+        <ctl name="Internal FM RX Volume" value="1" />
+        <ctl name="QUIN_MI2S_RX Port Mixer INTERNAL_FM_TX" value="1" />
+        <ctl name="QUIN_MI2S_RX_DL_HL Switch" value="1" />
+    </path>
+<!-- Huaqin add for fm no sound by zhengwu at 2018/09/10 end -->
 
     <path name="vowlan-call">
         <ctl name="PRI_MI2S_RX_Voice Mixer VoWLAN" value="1" />
@@ -932,6 +1017,13 @@
         <ctl name="VoiceMMode1_Tx Mixer TERT_MI2S_TX_MMode1" value="1" />
     </path>
 
+<!-- Huaqin add for phone speaker no sound by zhengwu at 2018/08/16 start -->
+    <path name="voicemmode1-call speaker">
+        <ctl name="QUIN_MI2S_RX_Voice Mixer VoiceMMode1" value="1" />
+        <ctl name="VoiceMMode1_Tx Mixer TERT_MI2S_TX_MMode1" value="1" />
+    </path>
+<!-- Huaqin add for phone speaker no sound by zhengwu at 2018/08/16 end -->
+
     <path name="voicemmode1-call bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX_Voice Mixer VoiceMMode1" value="1" />
         <ctl name="VoiceMMode1_Tx Mixer INT_BT_SCO_TX_MMode1" value="1" />
@@ -950,19 +1042,18 @@
     <path name="voicemmode1-call afe-proxy">
        <path name="voicemmode1-call usb-headphones" />
     </path>
-	
-    <path name="voicemmode1-call speaker-and-headphones">
-       <path name="voicemmode1-call" />
-    </path>
-	
+
     <path name="voicemmode2-call">
         <ctl name="PRI_MI2S_RX_Voice Mixer VoiceMMode2" value="1" />
         <ctl name="VoiceMMode2_Tx Mixer TERT_MI2S_TX_MMode2" value="1" />
     </path>
 
-    <path name="voicemmode2-call speaker-and-headphones">
-       <path name="voicemmode2-call" />
+<!-- Huaqin add for phone speaker no sound by zhengwu at 2018/08/16 start -->
+    <path name="voicemmode2-call speaker">
+        <ctl name="QUIN_MI2S_RX_Voice Mixer VoiceMMode2" value="1" />
+        <ctl name="VoiceMMode2_Tx Mixer TERT_MI2S_TX_MMode2" value="1" />
     </path>
+<!-- Huaqin add for phone speaker no sound by zhengwu at 2018/08/16 end -->
 
     <path name="voicemmode2-call bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX_Voice Mixer VoiceMMode2" value="1" />
@@ -1107,79 +1198,7 @@
     <path name="incall_music_uplink">
        <ctl name="Incall_Music Audio Mixer MultiMedia2" value="1" />
     </path>
- <!-- XiaoMi's SOS demand -->
-	<path name="incall_music_uplink speaker">
-	    <path name="incall_music_uplink" />
-	</path>
 
-	<path name="incall_music_uplink speaker-protected">
-	    <path name="incall_music_uplink" />
-	</path>
-
-	<path name="incall_music_uplink receiver">
-	    <path name="incall_music_uplink" />
-	</path>
-
-	<path name="incall_music_uplink speaker-and-bt-sco">
-	    <path name="incall_music_uplink" />
-	</path>
-
-	<path name="incall_music_uplink speaker-and-bt-sco-wb">
-	    <path name="incall_music_uplink" />
-	</path>
-
-	<path name="incall_music_uplink usb-headset">
-	    <path name="incall_music_uplink" />
-	</path>
-
-	<path name="incall_music_uplink speaker-and-usb-headphones">
-	    <path name="incall_music_uplink" />
-	</path>
-
-	<path name="incall_music_uplink headphones">
-	    <path name="incall_music_uplink" />
-	</path>
-
-	<path name="incall_music_uplink speaker-and-headphones">
-	    <path name="incall_music_uplink" />
-	</path>
-
-	<path name="incall_music_uplink2 speaker">
-	    <path name="incall_music_uplink2" />
-	</path>
-
-	<path name="incall_music_uplink2 speaker-protected">
-	    <path name="incall_music_uplink2" />
-	</path>
-
-	<path name="incall_music_uplink2 receiver">
-	    <path name="incall_music_uplink2" />
-	</path>
-
-	<path name="incall_music_uplink2 speaker-and-bt-sco">
-	    <path name="incall_music_uplink2" />
-	</path>
-
-	<path name="incall_music_uplink2 speaker-and-bt-sco-wb">
-	    <path name="incall_music_uplink2" />
-	</path>
-
-	<path name="incall_music_uplink2 usb-headset">
-	    <path name="incall_music_uplink2" />
-	</path>
-
-	<path name="incall_music_uplink2 speaker-and-usb-headphones">
-	    <path name="incall_music_uplink2" />
-	</path>
-
-	<path name="incall_music_uplink2 headphones">
-	    <path name="incall_music_uplink2" />
-	</path>
-
-	<path name="incall_music_uplink2 speaker-and-headphones">
-	    <path name="incall_music_uplink2" />
-	</path>
-<!-- [PATCH] audio: platian: config the incall music -->
     <path name="incall_music_uplink bt-sco">
         <path name="incall_music_uplink" />
     </path>
@@ -1196,7 +1215,7 @@
         <path name="incall_music_uplink" />
     </path>
     <path name="incall_music_uplink2">
-        <ctl name="Incall_Music_2 Audio Mixer MultiMedia2" value="1" />
+        <ctl name="Incall_Music_2 Audio Mixer MultiMedia9" value="1" />
     </path>
 
     <path name="incall_music_uplink2 bt-sco">
@@ -1245,6 +1264,11 @@
 
     <path name="compress-voip-call">
         <ctl name="PRI_MI2S_RX_Voice Mixer Voip" value="1" />
+        <ctl name="Voip_Tx Mixer TERT_MI2S_TX_Voip" value="1" />
+    </path>
+
+    <path name="compress-voip-call speaker">
+        <ctl name="QUIN_MI2S_RX_Voice Mixer Voip" value="1" />
         <ctl name="Voip_Tx Mixer TERT_MI2S_TX_Voip" value="1" />
     </path>
 
@@ -1314,10 +1338,7 @@
     </path>
 
     <path name="speaker">
-        <ctl name="RX3 MIX1 INP1" value="RX1" />
-        <ctl name="RX3 Digital Volume" value="80" />
-        <ctl name="LINE_OUT" value="Switch" />
-        <ctl name="Ext_Speaker_Amp" value="On" />
+
     </path>
 
     <path name="speaker-and-hdmi">
@@ -1339,9 +1360,11 @@
     <path name="vi-feedback">
     </path>
 
+<!-- Huaqin add for pa cal by zhengwu at 2018/08/20 start -->
     <path name="spkr-vi-record">
-        <ctl name="PRI_MI2S_RX_VI_FB_MUX" value="SENARY_TX" />
+	<ctl name="QUIN_MI2S_RX_VI_FB_MUX" value="QUIN_MI2S_TX" />
     </path>
+<!-- Huaqin add for pa cal by zhengwu at 2018/08/20 end -->
 
     <path name="speaker-protected">
         <ctl name="DEC3 MUX" value="DMIC3" />
@@ -1351,18 +1374,19 @@
         <ctl name="SpkrMono VISENSE Switch" value="1" />
     </path>
 
+<!-- Huaqin add for factory test fu mic by zhengwu at 2018/08/09 start -->
    <path name="speaker-mic">
-        <path name="adc1" />
+        <path name="adc3" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
    </path>
+<!-- Huaqin add for factory test fu mic by zhengwu at 2018/08/09 end -->
 
     <path name="handset">
         <ctl name="RX1 MIX1 INP1" value="RX1" />
         <ctl name="RDAC2 MUX" value="RX1" />
-        <ctl name="RX1 Digital Volume" value="93" />
+        <ctl name="RX1 Digital Volume" value="84" />
         <ctl name="EAR PA Gain" value="POS_6_DB" />
         <ctl name="EAR_S" value="Switch" />
-        <ctl name="Ext_Receiver_Amp" value="On" />
     </path>
 
     <path name="handset-mic">
@@ -1371,29 +1395,17 @@
     </path>
 
     <path name="headphones">
-        <ctl name="COMP0 RX1" value="0" />
-        <ctl name="COMP0 RX2" value="0" />
         <ctl name="MI2S_RX Channels" value="Two" />
         <ctl name="RX1 MIX1 INP1" value="RX1" />
         <ctl name="RX2 MIX1 INP1" value="RX2" />
         <ctl name="RX HPH Mode" value="HD2" />
+        <ctl name="COMP0 RX1" value="1" />
+        <ctl name="COMP0 RX2" value="1" />
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
     </path>
-	
-    <path name="headphones-ce">
-        <path name="headphones" />
-        <ctl name="RX1 Digital Volume" value="72" />
-        <ctl name="RX2 Digital Volume" value="72" />
-    </path>
 
-    <path name="headphones-no-ce">
-        <path name="headphones" />
-        <ctl name="RX1 Digital Volume" value="82" />
-        <ctl name="RX2 Digital Volume" value="82" />
-    </path>
-	
     <path name="headset-mic">
         <path name="adc2" />
         <ctl name="ADC2 MUX" value="INP2" />
@@ -1413,14 +1425,14 @@
         <ctl name="IIR1 INP1 Volume" value="53" />
         <ctl name="RX1 MIX2 INP1" value="IIR1" />
     </path>
-
+<!-- Huaqin add for tt 1273896 by zhengwu at 2019/01/14 start -->
     <path name="sidetone-headphones">
         <path name="sidetone-iir" />
         <ctl name="RX1 MIX2 INP1" value="IIR1" />
         <ctl name="RX2 MIX2 INP1" value="IIR1" />
-        <ctl name="IIR1 INP1 Volume" value="30" />
+        <ctl name="IIR1 INP1 Volume" value="15" />
     </path>
-
+<!-- Huaqin add for tt 1273896 by zhengwu at 2019/01/14 end -->
 
     <path name="voice-handset">
         <path name="handset" />
@@ -1449,24 +1461,8 @@
     <path name="speaker-and-headphones">
         <path name="speaker" />
         <path name="headphones" />
-   	<ctl name="RX1 Digital Volume" value="60" />
-        <ctl name="RX2 Digital Volume" value="60" />
     </path>
 
-     <path name="speaker-and-headphones-ce">
-        <path name="speaker" />
-        <path name="headphones-ce" />
-   	<ctl name="RX1 Digital Volume" value="72" />
-        <ctl name="RX2 Digital Volume" value="72" />
-    </path>
-  
-     <path name="speaker-and-headphones-no-ce">
-        <path name="speaker" />
-        <path name="headphones-no-ce" />
-   	<ctl name="RX1 Digital Volume" value="82" />
-        <ctl name="RX2 Digital Volume" value="82" />
-    </path>
-  
     <path name="wsa-speaker-and-headphones">
         <path name="wsa-speaker" />
         <path name="headphones" />
@@ -1493,11 +1489,6 @@
 
     <path name="voice-rec-mic">
         <path name="handset-mic" />
-    </path>
-
-    <path name="secondary-mic">
-        <path name="adc3" />
-        <ctl name="IIR1 INP1 MUX" value="DEC1" />
     </path>
 
     <path name="camcorder-mic">
