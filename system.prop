@@ -67,8 +67,5 @@ rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 ro.telephony.default_network=22,22
 telephony.lteOnCdmaDevice=1
 
-# WFD
-persist.debug.wfd.enable=0
-
 # Bpf
 ro.kernel.ebpf.supported=1
