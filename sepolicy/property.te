@@ -1,2 +1,1 @@
-# Fingerprint
-type fp_prop, property_type;
+type vendor_fingerprint_prop, property_type;
