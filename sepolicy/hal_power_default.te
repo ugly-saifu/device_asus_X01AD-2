@@ -1,3 +1,1 @@
-# Allow to write in /dev/input/event2
-allow hal_power_default input_device:dir search;
-allow hal_power_default input_device:chr_file rw_file_perms;
+allow hal_power_default proc_tpd_gesture:file rw_file_perms;

@@ -4,3 +4,6 @@ genfscon proc  /sys/kernel/boot_reason   u:object_r:proc_boot_reason:s0
 # Rmt
 genfscon debugfs /rmt_storage	u:object_r:debugfs_rmt:s0
 
+# Touchscreen
+genfscon proc /tpd_gesture u:object_r:proc_tpd_gesture:s0
+
