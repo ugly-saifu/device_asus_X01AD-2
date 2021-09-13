@@ -236,7 +236,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.onclite
+    android.hardware.light@2.0-service.X01AD
 
 # LiveDisplay
 PRODUCT_PACKAGES += \

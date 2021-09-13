@@ -5,7 +5,7 @@
 /data/vendor/focaltech(/.*)?                                                  u:object_r:fingerprint_vendor_data_file:s0
 
 # HALs
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.onclite	     u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.X01AD	     u:object_r:hal_light_default_exec:s0
 
 # Input devices
 /(vendor|system/vendor)/usr/idc(/.*)?                         u:object_r:idc_file:s0
