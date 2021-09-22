@@ -160,7 +160,6 @@ BOARD_USES_QCOM_HARDWARE := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Recovery
-BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # SELinux
