@@ -31,15 +31,6 @@ on early-init && property:ro.boot.mode=charger
     chown system system /sys/class/leds/red/max_brightness
     write /sys/class/leds/red/brightness 149
     write /sys/class/leds/red/max_brightness 255
-    
-on early-init
-    mkdir /firmware 0771 system system
-    mkdir /bt_firmware 0771 system system
-    mkdir /dsp 0771 media media
-    mkdir /ADF 0775 system system
-    mkdir /APD 0775 system system
-    mkdir /asusfw 0775 system system
-    mkdir /factory 0775 system system
 
 on fs
     chmod 0644 /mnt/vendor/persist/.sn.bin
