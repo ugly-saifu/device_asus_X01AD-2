@@ -34,6 +34,9 @@ vendor.voice.voip.conc.disabled=true
 # Bluetooth
 vendor.qcom.bluetooth.soc=pronto
 
+# Camera
+persist.vendor.camera.HAL3.enabled=1
+
 # Display post-processing
 ro.vendor.display.cabl=0
 ro.vendor.display.sensortype=2
