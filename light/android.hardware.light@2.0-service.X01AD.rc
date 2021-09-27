@@ -1,13 +1,11 @@
 on early-boot
     # leds light
-    chown system system /sys/class/leds/red/brightness
     chown system system /sys/class/leds/red/breath
-    chown system system /sys/class/leds/red/delay_off
-    chown system system /sys/class/leds/red/delay_on
-
-    chmod 660 /sys/class/leds/red/breath
-    chmod 660 /sys/class/leds/red/delay_off
-    chmod 660 /sys/class/leds/red/delay_on
+    chown system system /sys/class/leds/green/breath
+    chown system system /sys/class/leds/blue/breath
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/blue/brightness
 
 service light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.X01AD
     interface android.hardware.light@2.0::ILight default

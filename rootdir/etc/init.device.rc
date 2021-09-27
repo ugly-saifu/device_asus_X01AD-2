@@ -28,9 +28,11 @@
 # LED notification
 on early-init && property:ro.boot.mode=charger
     chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/red/max_brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/blue/brightness
     write /sys/class/leds/red/brightness 149
-    write /sys/class/leds/red/max_brightness 255
+    write /sys/class/leds/green/brightness 149
+    write /sys/class/leds/blue/brightness 149
 
 on fs
     chmod 0644 /mnt/vendor/persist/.sn.bin
