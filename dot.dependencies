@@ -1,0 +1,10 @@
+[
+ {
+   "repository": "vendor_asus_X01AD",
+   "target_path": "vendor/asus"
+ },
+ {
+   "repository": "kernel_asus_X01AD",
+   "target_path": "kernel/asus/X01AD"
+ }
+]
